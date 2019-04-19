@@ -1,0 +1,16 @@
+---
+- name: Fuse Standalone Playbook
+  hosts: fuse-lab-environment
+  remote_user: root
+  gather_facts: true
+  become: yes
+  become_user: root
+  become_method: sudo
+  tasks:
+    # Single Fuse Standalone without a Network of Brokers
+    - import_role:
+        name: fuse-install
+      vars:
+        esb_name: 'esb01'
+        port_offset: '0'
+        nob: 'false'
