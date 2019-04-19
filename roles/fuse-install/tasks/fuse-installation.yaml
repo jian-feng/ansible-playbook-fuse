@@ -31,6 +31,7 @@
     keep_newer: yes
     owner: "{{ user['name'] }}"
     group: "{{ user['name'] }}"
+    creates: '{{ fuse_base }}/latest-{{ esb_name }}/bin'
 
 - name: Change owner of Fuse binaries
   file:
